@@ -1,0 +1,30 @@
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"pymode shortcut
+map <f5> :PymodeRun<CR>
+" help in vertical mode
+map <f1> :vert help<CR> 
+
+" cursor style
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" for .hql files
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
+" for .q files
+au BufNewFile,BufRead *.q set filetype=hive expandtab
+
+"colors
+hi Comment ctermfg=green
+
+"used clipboard in copy
+set clipboard=unnamedplus
+
+" open splits on the right and buttom
+set splitbelow
+set splitright

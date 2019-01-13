@@ -108,7 +108,8 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/Wombat'
 " Yank history navigation
 Plug 'vim-scripts/YankRing.vim'
-
+" Buffergator
+Plug 'https://github.com/jeetsukumaran/vim-buffergator.git'
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
@@ -166,8 +167,6 @@ map <C-S-Right> :tabn<CR>
 imap <C-S-Right> <ESC>:tabn<CR>
 map <C-S-Left> :tabp<CR>
 imap <C-S-Left> <ESC>:tabp<CR>
-nmap <tab> :tabn<CR>
-nmap <S-tab> :tabp<CR>
 
 " navigate windows with meta+arrows
 map <M-Right> <c-w>l
@@ -178,6 +177,7 @@ imap <M-Right> <ESC><c-w>l
 imap <M-Left> <ESC><c-w>h
 imap <M-Up> <ESC><c-w>k
 imap <M-Down> <ESC><c-w>j
+nmap <tab> <c-w>w 
 
 " old autocomplete keyboard shortcut
 imap <C-J> <C-X><C-O>
@@ -254,7 +254,9 @@ map <F3> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
+" fix cursor problem
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
 
 " Tasklist ------------------------------
 

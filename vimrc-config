@@ -43,8 +43,6 @@ Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 " Extension to ctrlp, for fuzzy command finder
 Plug 'fisadev/vim-ctrlp-cmdpalette'
-" Zen coding
-Plug 'mattn/emmet-vim'
 " Git integration
 Plug 'motemen/git-vim'
 " Tab list panel
@@ -168,6 +166,8 @@ map <C-S-Right> :tabn<CR>
 imap <C-S-Right> <ESC>:tabn<CR>
 map <C-S-Left> :tabp<CR>
 imap <C-S-Left> <ESC>:tabp<CR>
+nmap <tab> :tabn<CR>
+nmap <S-tab> :tabp<CR>
 
 " navigate windows with meta+arrows
 map <M-Right> <c-w>l
@@ -394,19 +394,6 @@ let g:airline_powerline_fonts = 0
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
-" to use fancy symbols for airline, uncomment the following lines and use a
-" patched font (more info on the README.rst)
-"if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-"endif
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-"let g:airline_right_alt_sep = '⮃'
-"let g:airline_symbols.branch = '⭠'
-"let g:airline_symbols.readonly = '⭤'
-"let g:airline_symbols.linenr = '⭡'
-
 "pymode shortcut
 map <f5> :PymodeRun<CR>
 " help in vertical mode
@@ -431,3 +418,14 @@ set splitright
 
 " remap ledder
 let mapleader = ','
+
+" page up and down faster navigation
+map <C-J> <C-D>
+map <C-K> <C-U>
+
+" split mode faster navigation
+"map <C-S-J> <C-W>j
+"map <C-S-K> <C-W>k
+"map <C-S-L> <C-W>l
+"map <C-S-H> <C-W>h
+

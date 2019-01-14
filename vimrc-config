@@ -442,3 +442,7 @@ set smartcase
 
 " conqueTerm shortcuts
 map <F2> :ConqueTermSplit bash<CR>
+
+" color column
+:set colorcolumn=80
+

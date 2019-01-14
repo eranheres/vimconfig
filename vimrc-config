@@ -55,7 +55,7 @@ Plug 'fisadev/fisa-vim-colorscheme'
 " Consoles as buffers
 Plug 'rosenfeld/conque-term'
 " Pending tasks / todo list
-Plug 'aserebryakov/vim-todo-lists'
+Plug 'git://github.com/freitass/todo.txt-vim.git'
 " Surround
 Plug 'tpope/vim-surround'
 " Autoclose
@@ -257,9 +257,10 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " fix cursor problem
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
-" 
+" adjust default win size 
 :let g:NERDTreeWinSize=30
-
+" quit on open a file
+let NERDTreeQuitOnOpen=1
 " Tasklist ------------------------------
 
 " show pending tasks list

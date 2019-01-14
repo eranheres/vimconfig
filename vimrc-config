@@ -54,8 +54,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'fisadev/fisa-vim-colorscheme'
 " Consoles as buffers
 Plug 'rosenfeld/conque-term'
-" Pending tasks list
-Plug 'fisadev/FixedTaskList.vim'
+" Pending tasks / todo list
+Plug 'aserebryakov/vim-todo-lists'
 " Surround
 Plug 'tpope/vim-surround'
 " Autoclose
@@ -257,11 +257,13 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " fix cursor problem
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+" 
+:let g:NERDTreeWinSize=30
 
 " Tasklist ------------------------------
 
 " show pending tasks list
-map <F2> :TaskList<CR>
+map <F6> :TaskList<CR>
 
 " CtrlP ------------------------------
 
@@ -392,7 +394,7 @@ let g:choosewin_overlay_enable = 1
 
 " Airline ------------------------------
 
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 0 
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
@@ -431,3 +433,12 @@ map <C-K> <C-U>
 "map <C-S-L> <C-W>l
 "map <C-S-H> <C-W>h
 
+" allow switching between windows without saving the buffergator
+set hidden
+
+" search case sensitive with smart case 
+set ignorecase
+set smartcase 
+
+" conqueTerm shortcuts
+map <F2> :ConqueTermSplit bash<CR>

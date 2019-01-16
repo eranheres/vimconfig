@@ -67,7 +67,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 " Python autocompletion, go to definition.
 Plug 'davidhalter/jedi-vim'
 " Better autocompletion
-Plug 'Shougo/neocomplcache.vim'
+" Plug 'Shougo/neocomplcache.vim'
 " Snippets manager (SnipMate), dependencies, and snippets repo
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -107,9 +107,11 @@ Plug 'vim-scripts/matchit.zip'
 " Gvim colorscheme
 Plug 'vim-scripts/Wombat'
 " Yank history navigation
-Plug 'vim-scripts/YankRing.vim'
 " Buffergator
 Plug 'https://github.com/jeetsukumaran/vim-buffergator.git'
+" tabular for better text alignment control 
+Plug 'git://github.com/godlygeek/tabular.git'
+Plug 'JamshedVesuna/vim-markdown-preview'
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
@@ -260,7 +262,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 " adjust default win size 
 :let g:NERDTreeWinSize=30
 " quit on open a file
-let NERDTreeQuitOnOpen=1
+" let NERDTreeQuitOnOpen=1
 " Tasklist ------------------------------
 
 " show pending tasks list
@@ -315,19 +317,30 @@ let g:syntastic_enable_signs = 0
 "let g:syntastic_warning_symbol = '⚠'
 "let g:syntastic_style_error_symbol = '✗'
 "let g:syntastic_style_warning_symbol = '⚠'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Jedi-vim ------------------------------
 
+" Set python3 executable
+:py3 sys.executable='/usr/local/bin/python3'
 " All these mappings work only for python code:
 " Go to definition
-let g:jedi#goto_command = ',d'
+"let g:jedi#goto_command = ',d'
 " Find ocurrences
-let g:jedi#usages_command = ',o'
+"let g:jedi#usages_command = ',o'
 " Find assignments
-let g:jedi#goto_assignments_command = ',a'
+"let g:jedi#goto_assignments_command = ',a'
 " Go to definition in new tab
-nmap ,D :tab split<CR>:call jedi#goto()<CR>
+"nmap ,D :tab split<CR>:call jedi#goto()<CR>
 
+let g:jedi#completions_command = "<C-N>"
 " NeoComplCache ------------------------------
 
 " most of them not documented because I'm not sure how they work
@@ -402,7 +415,7 @@ let g:airline#extensions#whitespace#enabled = 0
 "pymode shortcut
 map <f5> :PymodeRun<CR>
 " help in vertical mode
-map <f1> :vert help<CR>
+map <f1> :vert help<CR> :vertical resize 80<CR> :set wfw<CR>
 
 " cursor style
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -421,7 +434,7 @@ set clipboard=unnamedplus
 set splitbelow
 set splitright
 
-" remap ledder
+" remap leader
 let mapleader = ','
 
 " page up and down faster navigation
@@ -447,3 +460,7 @@ map <F2> :ConqueTermSplit bash<CR>
 " color column
 set colorcolumn=80
 highlight ColorColumn ctermbg=8
+
+" Navigation through errors
+nmap <leader>n :lnext<cr>
+nmap <leader>N :lprev<cr>

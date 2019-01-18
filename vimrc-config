@@ -65,7 +65,7 @@ Plug 'michaeljsmith/vim-indent-object'
 " Indentation based movements
 Plug 'jeetsukumaran/vim-indentwise'
 " Python autocompletion, go to definition.
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 " Better autocompletion
 " Plug 'Shougo/neocomplcache.vim'
 " Snippets manager (SnipMate), dependencies, and snippets repo
@@ -82,7 +82,7 @@ Plug 'fisadev/dragvisuals.vim'
 " Window chooser
 Plug 't9md/vim-choosewin'
 " Python and other languages code checker
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
 " Ack code search (requires ack installed in the system)
@@ -112,6 +112,8 @@ Plug 'https://github.com/jeetsukumaran/vim-buffergator.git'
 " tabular for better text alignment control 
 Plug 'git://github.com/godlygeek/tabular.git'
 Plug 'JamshedVesuna/vim-markdown-preview'
+" Pymode plugin 
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
@@ -329,7 +331,7 @@ let g:syntastic_check_on_wq = 0
 " Jedi-vim ------------------------------
 
 " Set python3 executable
-:py3 sys.executable='/usr/local/bin/python3'
+" :py3 sys.executable='/usr/local/bin/python3'
 " All these mappings work only for python code:
 " Go to definition
 "let g:jedi#goto_command = ',d'
@@ -340,7 +342,7 @@ let g:syntastic_check_on_wq = 0
 " Go to definition in new tab
 "nmap ,D :tab split<CR>:call jedi#goto()<CR>
 
-let g:jedi#completions_command = "<C-N>"
+" let g:jedi#completions_command = "<C-N>"
 " NeoComplCache ------------------------------
 
 " most of them not documented because I'm not sure how they work

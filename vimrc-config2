@@ -13,21 +13,28 @@ Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
+Plugin 'jnurmine/Zenburn'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-surround'
 Plugin 'rosenfeld/conque-term'
 Plugin 't9md/vim-choosewin'
 Plugin 'vim-vdebug/vdebug'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'Shougo/echodoc.vim'
+Plugin 'Raimondi/delimitMate'
+"Plugin 'Townk/vim-autoclose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,12 +61,14 @@ map <f1> :vert help<CR> :vertical resize 80<CR> :set wfw<CR>
 " page up and down faster navigation
 map <C-J> <C-D>
 map <C-K> <C-U>
+" scroll through selection
+imap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-J>"
+imap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-K>"
 " allow switching between windows without saving the buffergator
 set hidden
 " search case sensitive with smart case 
 set ignorecase
 set smartcase 
-
 
 " Styling ---------------------------------
 "------------------------------------------
@@ -89,10 +98,10 @@ au BufNewFile,BufRead *.js, *.html, *.css
      \ set softtabstop=2 |
      \ set shiftwidth=2
 " split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 " incremental search
 set incsearch
 " highlighted search results
@@ -198,3 +207,14 @@ let g:choosewin_overlay_enable = 1
 
 " ConqueTerm plugin ---------------------------
 map <F2> :ConqueTermSplit bash<CR>
+
+" VDebug plugin ---------------------------
+" remap F-5 key so it will open the remote python when executing
+function! Debug_vdebug()
+    :w
+    :VdebugStart
+    :AsyncRun python -S ~/.vim/komodo-python/pydbgp -d localhost:9000 % /tmp/vimlog.log
+endfunction
+map <F5> :w<CR> :VdebugStart<CR> :AsyncRun python -S ~/.vim/komodo-python/pydbgp -d localhost:9000 % /tmp/vimlog.log<CR>
+set autoread
+au CursorHold *.py checktime 

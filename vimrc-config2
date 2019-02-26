@@ -31,7 +31,7 @@ Plugin 't9md/vim-choosewin'
 Plugin 'vim-vdebug/vdebug'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'skywind3000/asyncrun.vim'
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Shougo/echodoc.vim'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'Townk/vim-autoclose'
@@ -210,11 +210,11 @@ map <F2> :ConqueTermSplit bash<CR>
 
 " VDebug plugin ---------------------------
 " remap F-5 key so it will open the remote python when executing
-function! Debug_vdebug()
+function! Debug_vdebug(...)
     :w
     :VdebugStart
-    :AsyncRun python -S ~/.vim/komodo-python/pydbgp -d localhost:9000 % /tmp/vimlog.log
+    :exec ':AsyncRun python -S ~/.vim/komodo-python/pydbgp -d localhost:9000 % '.join(a:000)
 endfunction
-map <F5> :w<CR> :VdebugStart<CR> :AsyncRun python -S ~/.vim/komodo-python/pydbgp -d localhost:9000 % /tmp/vimlog.log<CR>
+noremap <leader>a :exec Debug_vdebug()<CR>
 set autoread
 au CursorHold *.py checktime 

@@ -113,7 +113,8 @@ Plug 'https://github.com/jeetsukumaran/vim-buffergator.git'
 Plug 'git://github.com/godlygeek/tabular.git'
 Plug 'JamshedVesuna/vim-markdown-preview'
 " Pymode plugin 
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'vim-vdebug/vdebug'
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
@@ -262,7 +263,8 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 " adjust default win size 
-:let g:NERDTreeWinSize=30
+let g:NERDTreeWinSize=30
+let g:NERDTreeNodeDelimiter = "\u00a0"
 " quit on open a file
 " let NERDTreeQuitOnOpen=1
 " Tasklist ------------------------------
@@ -308,20 +310,20 @@ let g:ctrlp_custom_ignore = {
 " Syntastic ------------------------------
 
 " show list of errors and warnings on the current file
-nmap <leader>e :Errors<CR>
+"nmap <leader>e :Errors<CR>
 " check also when just opened the file
-let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_open = 1
 " don't put icons on the sign column (it hides the vcs status icons of signify)
-let g:syntastic_enable_signs = 0
+"let g:syntastic_enable_signs = 0
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
 "let g:syntastic_error_symbol = '✗'
 "let g:syntastic_warning_symbol = '⚠'
 "let g:syntastic_style_error_symbol = '✗'
 "let g:syntastic_style_warning_symbol = '⚠'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -414,8 +416,11 @@ let g:airline_powerline_fonts = 0
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
-"pymode shortcut
-map <f5> :PymodeRun<CR>
+" PyMode --------------------------------- 
+map <f5> :w<CR>:!python %<CR>
+let g:pymode_breakpoint_bind = '<F8>'
+let g:pymode_rope_completion = 1
+
 " help in vertical mode
 map <f1> :vert help<CR> :vertical resize 80<CR> :set wfw<CR>
 

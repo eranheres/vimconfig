@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jnurmine/Zenburn'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'davidhalter/jedi-vim'
 Plug 'vim-syntastic/syntastic'

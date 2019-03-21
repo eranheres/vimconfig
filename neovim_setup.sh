@@ -8,7 +8,7 @@ if [[ ! -f ~/.config/nvim/init.vim ]]; then
 	mkdir -p ~/.config/nvim
 	ln -sf $PWD/init.vim ~/.config/nvim/init.vim
 fi
-#nvim +PluginInstall +qa
-#cp -R komodo-python ~/.vim
-#cd ~/.vim/bundle/YouCompleteMe
+nvim +PlugInstall +qa >> /dev/null
+#cp -R komodo-python ~/.local
+#cd ~/.local/share/nvim/site/YouCompleteMe
 #python install.py

@@ -1,7 +1,9 @@
 #!/bin/sh 
-if [[ -z $(grep vimrc-config ~/.vimrc) ]]; then
-	echo adding config to .vimrc
-	echo "source $(pwd)/vimrc-config" >> ~/.vimrc
+if [[ ! -f $(grep vimrc-config ~/.vimrc) ]]; then
+	ln -sf $(PWD)/init.vim $(HOME)/.config/nvim/init.vim
+fi
+if [[ ! -d "~/.vim/bundle/Vundle.vim" ]]; then 
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 vim +PluginInstall +qa
 cp -R komodo-python ~/.vim

@@ -5,42 +5,35 @@ set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
-Plugin 'jnurmine/Zenburn'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'majutsushi/tagbar'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'rosenfeld/conque-term'
-Plugin 't9md/vim-choosewin'
-Plugin 'vim-vdebug/vdebug'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'skywind3000/asyncrun.vim'
-"Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'Shougo/echodoc.vim'
-Plugin 'Raimondi/delimitMate'
-"Plugin 'Townk/vim-autoclose'
+Plug 'jnurmine/Zenburn'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'rosenfeld/conque-term'
+Plug 't9md/vim-choosewin'
+Plug 'vim-vdebug/vdebug'
+Plug 'scrooloose/nerdcommenter'
+Plug 'skywind3000/asyncrun.vim'
+"Plug 'ludovicchabant/vim-gutentags'
+Plug 'Shougo/echodoc.vim'
+Plug 'Raimondi/delimitMate'
+"Plug 'Townk/vim-autoclose'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
 
 

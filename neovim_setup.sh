@@ -10,6 +10,6 @@ if [[ ! -f ~/.config/nvim/init.vim ]]; then
 fi
 nvim +PlugInstall +qa 
 #nvim +PlugInstall +qa >> /dev/null
-cp -R komodo-python ~/.vim
-cd ~/.vim/plugged/YouCompleteMe
-python install.py
+#cp -R komodo-python ~/.vim
+#cd ~/.vim/plugged/YouCompleteMe
+#python install.py

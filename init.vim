@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 Plug 'jnurmine/Zenburn'
-Plug 'tmhedberg/SimpylFold'
+" Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
@@ -114,7 +114,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Plugins settings and mappings
 
 " Simply fold plugin -----------------
-let g:SimpylFold_docstring_preview=1
+" let g:SimpylFold_docstring_preview=1
 
 " AutoCompleteMe plugin -------------
 let g:ycm_autoclose_preview_window_after_completion=1

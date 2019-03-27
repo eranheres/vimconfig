@@ -31,6 +31,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Raimondi/delimitMate'
 "Plug 'Townk/vim-autoclose'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -70,6 +72,7 @@ set smartcase
 "------------------------------------------
 syntax on " turn syntax coloring on
 set cursorline
+set colorcolumn=80
 hi CursorLine gui=underline cterm=underline
 set nu    " set line numbers
 " Tab and text width for python files
@@ -140,29 +143,23 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 " CtrlP ------------------------------
 " file finder mapping
 let g:ctrlp_map = ',e'
-" tags (symbols) in current file finder mapping
-nmap ,g :CtrlPBufTag<CR>
 " tags (symbols) in all files finder mapping
-nmap ,G :CtrlPBufTagAll<CR>
+nmap ,g :CtrlPBufTagAll<CR>
 " general code finder in all files mapping
 nmap ,f :CtrlPLine<CR>
 " recent files finder mapping
 nmap ,m :CtrlPMRUFiles<CR>
-" commands finder mapping
-nmap ,c :CtrlPCmdPalette<CR>
 " to be able to call CtrlP with default search text
 function! CtrlPWithSearchText(search_text, ctrlp_command_end)
     execute ':CtrlP' . a:ctrlp_command_end
     call feedkeys(a:search_text)
 endfunction
 " same as previous mappings, but calling with current word as default text
-nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
-nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
+nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
 nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
 nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
 nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
 nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
-nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
 " don't change working directory
 let g:ctrlp_working_path_mode = 0
 " ignore these files and folders on file finder

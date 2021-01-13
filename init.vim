@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 " used Bundle instead of Plugin)
 Plug 'jnurmine/Zenburn'
 Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/indentpython.vim'
+"Plug 'vim-scripts/indentpython.vim'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'davidhalter/jedi-vim'
@@ -143,6 +143,8 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 " CtrlP ------------------------------
 " file finder mapping
 let g:ctrlp_map = ',e'
+" buffers
+nmap ,b :CtrlPBuffer<CR>
 " tags (symbols) in all files finder mapping
 nmap ,g :CtrlPBufTagAll<CR>
 " general code finder in all files mapping
